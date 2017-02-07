@@ -1,6 +1,8 @@
 class Guess {
-  constructor({card}) {
-    
+  constructor({card, response, feedback}) {
+    this.card = card
+    this.response = response
+    this.feedback = feedback
 
   }
 }
