@@ -6,6 +6,14 @@ describe('Card', () => {
     it('should return an object', () => {
       expect({ class: 'Card' }).to.be.an('object')
     })
+    it('should have a question', () => {
+      let card = new Card({question: 'What is the capital of Alaska?'})
+      expect(card.question).to.deep.equal('What is the capital of Alaska?')
+    })
+    it('should have an answer for the question', () => {
+      let card = new Card({answer: 'Juneau'})
+      expect(card.answer).to.deep.equal('Juneau')
+    })
   })
 
 })
@@ -21,7 +29,7 @@ describe('Card', () => {
 
 /*global it*/
 /*global describe*/
-/*global Card*/
+
 
 
 

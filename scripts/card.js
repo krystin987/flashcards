@@ -1,6 +1,7 @@
 class Card {
-  constructor({name}) {
-    this.name = name
+  constructor({question, answer}) {
+    this.question = question
+    this.answer = answer
 
   }
 }
