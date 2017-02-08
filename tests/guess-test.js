@@ -24,5 +24,22 @@ describe('Guess', () => {
       assert.property({ response }, 'response')
     })
 
+    it('should check the user response', () => {
+      let card = new Card ('What is the capital of Alaska?', 'Juneau')
+      let guess = new Guess({response: card.answer})
+      expect(guess.response).to.deep.equal(card.answer)
+    })
+
+    it('should be incorrect when the response and answer do not match', () => {
+      let card = new Card ('Which planet is closest to the sun?', 'Mercury')
+      let guess = new Guess({response: Guess.response})
+      expect(guess.response).to.not.equal(card.answer)
+    })
   })
 })
+
+
+
+
+/*global it*/
+/*global describe*/

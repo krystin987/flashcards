@@ -1,11 +1,21 @@
+import Card from '../scripts/card'
+
 class Guess {
   constructor({card, response, feedback}) {
     this.card = card
-    this.response = response
+    this.response = response || 'Saturn'
     this.feedback = feedback
+  }
 
+  correct () {
+    this.response === this.card.answer ? true : false
+  }
+  feedback () {
+    
   }
 }
+
+
 export default Guess
 
 // card = new Card ("What is the capital of Alaska?", "Juneau")
