@@ -1,5 +1,5 @@
 import { assert, expect } from 'chai'
-import Deck from '../scripts/deck'
+import {Deck, fromFile} from '../scripts/deck'
 import Card from '../scripts/card'
 import Round from '../scripts/round'
 import Guess from '../scripts/guess'

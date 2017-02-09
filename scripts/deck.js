@@ -1,3 +1,6 @@
+import fs from 'fs'
+import Card from '../scripts/card'
+
 class Deck {
   constructor(cards) {
     this.cards = cards
@@ -7,15 +10,21 @@ class Deck {
   }
 }
 
+function fromFile(filename) {
+  const lines = (fs.readFileSync(`${filename}`)+'').split("\n")
+  let cards = []
+  for (let line of lines) {
+    if(line.length)
+    cards.push(new Card(...line.split(',')))
+  }
+  return new Deck(cards)
+}
 
-export default Deck
 
-// Deck = Array
-// Deck.prototype.constructor = function(...args) {
-//   if (args.length == 1) this = args[0]
-//   else this = args
-// }
-//
-// Deck.prototype.count = function() {
-//   return this.length;
-// }
+export { Deck, fromFile}
+
+
+// d = Deck();
+// var content = fs.readFileSync(filename)+'';
+// for (var [q, a] of eval(content)) d.push(new CardMod.Card(q, a));
+// return d;
