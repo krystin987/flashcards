@@ -7,7 +7,7 @@ class Round {
     this.guesses = []
   }
   currentCard() {
-    return this.deck.cards[0];
+    return this.deck.cards[0]
   }
 
   recordGuess(text) {
@@ -21,7 +21,7 @@ class Round {
   numberCorrect(){
     let r = 0
     for (let g of this.guesses)
-    if (g.correct) r++
+      if (g.correct) r++
     return r
   }
 
