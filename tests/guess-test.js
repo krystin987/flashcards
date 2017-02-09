@@ -3,42 +3,50 @@ import Card from '../scripts/card'
 import Guess from '../scripts/guess'
 
 describe('Guess', () => {
-  describe('Object', () => {
 
-    it('should return a function', () => {
-      assert.isFunction(Guess)
-    })
+  let card = new Card ('What is the capital of Alaska?', 'Juneau')
+  let guess = new Guess('Juneau', card)
 
-    it('should have property: card', () => {
-      let card = new Card ('What is the capital of Alaska?', 'Juneau')
-      assert.property({ card }, 'card')
-    })
+  it('should be an instance of Guess', () => {
+    expect(guess).to.be.an.instanceOf(Guess)
+  })
 
     it('should have property: response', () => {
-      let feedback = new Card ('What is the capital of Alaska?', 'Juneau')
-      assert.property({ feedback }, 'feedback')
+      expect(guess).to.have.property('response')
     })
 
-    it('should have property: response', () => {
-      let response = new Card ('What is the capital of Alaska?', 'Juneau')
-      assert.property({ response }, 'response')
+    it('should be able to provide a response from the game player',   () => {
+      expect(guess.response).to.equal('Juneau')
     })
 
-    it('should check the user response', () => {
-      let card = new Card ('What is the capital of Alaska?', 'Juneau')
-      let guess = new Guess({response: card.answer})
-      expect(guess.response).to.deep.equal(card.answer)
+    it('should be able to provide correct', ()=>{
+      expect(guess.correct).to.be.ok
     })
 
-    it('should be incorrect when the response and answer do not match', () => {
-      let card = new Card ('Which planet is closest to the sun?', 'Mercury')
-      let guess = new Guess({response: Guess.response})
-      expect(guess.response).to.not.equal(card.answer)
+    it('should provide feedback()', ()=>{
+      expect(guess.feedback()).to.deep.equal('Correct!')
+    })
+
+    // End of Iteration II spec A
+describe('Guess', () => {
+    // Begin Iteration II spec B
+
+    let card = new Card("Which planet is closest to the sun?", "Mercury")
+    let guess = new Guess("Saturn", card)
+
+    it('should receive Saturn as a user response', () => {
+      expect(guess.response).to.equal('Saturn')
+    })
+
+    it('should return correct when the response matches the answer', () => {
+      expect(!guess.correct);
+  })
+    it('should provide a valid feedback() based on user response', ()=> {
+      expect(guess.feedback()).to.deep.equal('Incorrect.')
     })
   })
+
 })
-
-
 
 
 /*global it*/

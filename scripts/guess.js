@@ -1,18 +1,15 @@
 import Card from '../scripts/card'
 
 class Guess {
-  constructor({card, response, feedback}) {
-    this.card = card
-    this.response = response || 'Saturn'
-    this.feedback = feedback
+  constructor(response, card) {
+    this.response = response
+    this.correct = (card.answer == response)
   }
 
-  correct () {
-    this.response === this.card.answer ? true : false
+  feedback() {
+    return this.correct ? 'Correct!' : 'Incorrect.'
   }
-  feedback () {
-    
-  }
+
 }
 
 
