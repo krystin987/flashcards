@@ -1,6 +1,7 @@
 import { assert, expect } from 'chai'
-import Deck from '../scripts/deck'
+import {Deck, fromFile} from '../scripts/deck'
 import Card from '../scripts/card'
+
 
 describe('Deck', () => {
   let card1 = new Card("What is the capital of Alaska?", "Juneau")
@@ -30,6 +31,23 @@ describe('Deck', () => {
       expect(deck.count()).to.equal(3)
     })
 })
+
+describe('From File', () => {
+  const filename = "cards.txt"
+  let deckFromFile = fromFile(filename)
+  // let cardsGenerator = new CardGenerator(filename)
+  // let cards = cardsGenerator.cards
+
+  it('should have four cards', () => {
+    expect(deckFromFile.cards.length).to.equal(4)
+
+  })
+
+})
+
+
+
+
 
 
 
