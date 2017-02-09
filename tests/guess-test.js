@@ -3,7 +3,7 @@ import Card from '../scripts/card'
 import Guess from '../scripts/guess'
 
 describe('Guess', () => {
-
+  
   let card = new Card ('What is the capital of Alaska?', 'Juneau')
   let guess = new Guess('Juneau', card)
 
