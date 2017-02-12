@@ -1,4 +1,3 @@
-// import Card from 'card'
 import Guess from '../scripts/guess'
 
 class Round {
